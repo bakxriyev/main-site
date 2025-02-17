@@ -44,6 +44,7 @@ export const translations = {
       },
       committee: {
         title: "INTERNATIONAL SCIENTIFIC COMMITTEE",
+        kordinator:"Cordinators",
         members: [
           {
             name: "Tulaganov Bakhrom Abdukabilovich",
@@ -84,9 +85,9 @@ export const translations = {
             name: "Koroli Mehria Anvarovna",
             title:
               "professor, PhD, Thermodynamics and Energy Audit, TSTU (Uzbekistan)",
-            email: "dildoram76@mail.ru",
-            image: "/nurmament.png",
-          },
+            email: "",
+            image: "/kimdur.jpg",
+          },,
         ],
       },
       contact: {
@@ -247,6 +248,7 @@ export const translations = {
       },
       committee: {
         title: "Коммитет",
+        kordinator:"Кординаторы",
         members: [
           {
             name: "Tulaganov Bakhrom Abdukabilovich",
@@ -287,9 +289,9 @@ export const translations = {
             name: "Koroli Mehria Anvarovna",
             title:
               "professor, PhD, Thermodynamics and Energy Audit, TSTU (Uzbekistan)",
-            email: "dildoram76@mail.ru",
-            image: "/nurmament.png",
-          },
+            email: "",
+            image: "/kimdur.jpg",
+          },,
         ],
       },
       contact: {
@@ -450,6 +452,7 @@ export const translations = {
       },
       committee: {
         title: "Kommitet a`zolari",
+        kordinator:"Kordinatorlar",
         members: [
           {
             name: "Tulaganov Bakhrom Abdukabilovich",
@@ -490,8 +493,8 @@ export const translations = {
             name: "Koroli Mehria Anvarovna",
             title:
               "professor, PhD, Thermodynamics and Energy Audit, TSTU (Uzbekistan)",
-            email: "dildoram76@mail.ru",
-            image: "/nurmament.png",
+            email: "",
+            image: "/kimdur.jpg",
           },
         ],
       },
