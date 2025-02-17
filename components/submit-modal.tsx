@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { API } from "@/hook/getENV"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { X, Download } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { translations } from "@/translation"
@@ -22,6 +22,24 @@ export default function SubmitModal({ isOpen, onClose }: SubmitModalProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
+
+  // Handle modal scroll positioning
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+      // Reset scroll position when modal opens
+      if (modalRef.current) {
+        modalRef.current.scrollTop = 0
+      }
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isOpen])
 
   if (!isOpen) return null
 
@@ -71,16 +89,33 @@ export default function SubmitModal({ isOpen, onClose }: SubmitModalProps) {
   ]
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
-      <div className="bg-white rounded-lg max-w-xl w-full p-8 relative">
+    <div 
+      className="fixed inset-0 bg-black/50 flex items-start justify-center z-50 p-4 overflow-y-auto"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose()
+      }}
+      ref={modalRef}
+    >
+      <div className="bg-white rounded-lg max-w-xl w-full p-6 sm:p-8 relative my-8 max-h-[90vh] overflow-y-auto">
+        {/* Close button - visible at all screen sizes, positioned absolutely */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors z-10"
+          aria-label="Close modal"
         >
           <X className="h-6 w-6" />
         </button>
 
-        <h2 className="text-3xl font-bold mb-6 text-[#FF7748]">{t.title}</h2>
+        {/* Mobile close button - fixed at bottom of screen on small devices */}
+        <button
+          onClick={onClose}
+          className="sm:hidden fixed bottom-4 right-4 bg-white rounded-full p-2 shadow-lg border border-gray-200 z-20"
+          aria-label="Close modal"
+        >
+          <X className="h-6 w-6 text-gray-500" />
+        </button>
+
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#FF7748] pr-8">{t.title}</h2>
 
         <div className="mb-6 p-4 bg-gray-100 rounded-lg">
           <h3 className="font-semibold mb-2 text-gray-700">{t.conditionsTitle}</h3>
@@ -203,8 +238,10 @@ export default function SubmitModal({ isOpen, onClose }: SubmitModalProps) {
             </button>
           </form>
         )}
+        
+        {/* Add extra padding at bottom for mobile to ensure visibility with fixed close button */}
+        <div className="h-12 sm:h-0"></div>
       </div>
     </div>
   )
 }
-
