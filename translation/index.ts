@@ -86,7 +86,7 @@ export const translations = {
             title:
               "professor, PhD, Thermodynamics and Energy Audit, TSTU (Uzbekistan)",
             email: "",
-            image: "/kimdur.jpg",
+            image: "/xola.jpg",
           },,
         ],
       },
@@ -290,7 +290,7 @@ export const translations = {
             title:
               "professor, PhD, Thermodynamics and Energy Audit, TSTU (Uzbekistan)",
             email: "",
-            image: "/kimdur.jpg",
+            image: "/xola.jpg",
           },,
         ],
       },
@@ -494,7 +494,7 @@ export const translations = {
             title:
               "professor, PhD, Thermodynamics and Energy Audit, TSTU (Uzbekistan)",
             email: "",
-            image: "/kimdur.jpg",
+            image: "/xola.jpg",
           },
         ],
       },
