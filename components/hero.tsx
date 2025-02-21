@@ -15,7 +15,7 @@ export default function Hero() {
       <section
         className="relative pt-16"
         style={{
-          backgroundImage: `url('https://taqu.uz/assets/img/tiace-2023.jpg')`,
+          backgroundImage: `url('https://taqu.uz/front/assets/img/taqu1.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
